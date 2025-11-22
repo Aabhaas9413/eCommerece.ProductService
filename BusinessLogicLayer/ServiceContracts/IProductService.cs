@@ -12,13 +12,10 @@ namespace BusinessLogicLayer.ServiceContracts;
 public interface IProductService
 {
     /// <summary>
-    /// Retrieves a list of products. If <paramref name="productId"/> is provided
-    /// it can be used to filter or locate a specific product; otherwise returns
-    /// all products depending on implementation.
+    /// Returns a list of products. 
     /// </summary>
-    /// <param name="productId">Optional product identifier used to filter results.</param>
-    /// <returns>A task that represents the asynchronous operation. The task result contains a list of <see cref="ProductResponse"/>.</returns>
-    Task<List<ProductResponse>> GetProducts(string productId);
+    /// <returns></returns>
+    Task<List<ProductResponse>> GetProducts();
 
     /// <summary>
     /// Retrieves products that satisfy the provided condition expression.
@@ -38,7 +35,7 @@ public interface IProductService
     /// A task that represents the asynchronous operation. The task result contains a list where the element
     /// may be <c>null</c> if no matching product was found; implementations typically return a single-item list.
     /// </returns>
-    Task<List<ProductResponse?>> GetSingleProductByCondition(Expression<Func<Product, bool>> conditionExpression);
+    Task<ProductResponse?> GetSingleProductByCondition(Expression<Func<Product, bool>> conditionExpression);
 
     /// <summary>
     /// Adds a new product using values from the provided <see cref="ProductAddRequest"/>.
