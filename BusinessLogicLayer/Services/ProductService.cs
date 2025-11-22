@@ -64,14 +64,14 @@ public class ProductService : IProductService
        return _mapper.Map<List<ProductResponse>>(products).ToList();
     }
 
-    public async Task<List<ProductResponse>> GetProductsByCondition(Expression<Func<Product, bool>> conditionExpression)
+    public async Task<List<ProductResponse?>> GetProductsByCondition(Expression<Func<Product, bool>> conditionExpression)
     {
         IEnumerable<Product> products = await _productsRepository.GetProductsByCondition(conditionExpression);
         if (products == null || !products.Any())
         {
-            return new List<ProductResponse>();
+            return new List<ProductResponse?>();
         }
-        return _mapper.Map<List<ProductResponse>>(products).ToList();
+        return _mapper.Map<List<ProductResponse?>>(products).ToList();
 
     }
 

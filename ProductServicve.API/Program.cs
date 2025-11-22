@@ -1,6 +1,7 @@
 using BusinessLogicLayer;
 using DataAccessLayer;
 using FluentValidation.AspNetCore;
+using ProductServicve.API.APIEndpoints;
 using ProductServicve.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,4 +28,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapProductAPIEndpoints();
 app.Run();

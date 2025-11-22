@@ -23,7 +23,7 @@ public interface IProductService
     /// </summary>
     /// <param name="conditionExpression">Expression used to filter products.</param>
     /// <returns>A task that represents the asynchronous operation. The task result contains a list of <see cref="ProductResponse"/> that match the condition.</returns>
-     Task<List<ProductResponse>> GetProductsByCondition(Expression<Func<Product, bool>> conditionExpression);
+     Task<List<ProductResponse?>> GetProductsByCondition(Expression<Func<Product, bool>> conditionExpression);
 
     /// <summary>
     /// Retrieves a single product (or an empty/nullable result) that satisfies the provided condition.
